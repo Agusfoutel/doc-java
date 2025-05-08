@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación RedSocial - Iteración 1</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-body-bg: #121212;
+            --bs-body-color: #e0e0e0;
+        }
+        
+        body {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
+            padding-bottom: 50px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #ff69b4;
+        }
+        
+        .code-block {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        pre {
+            color: #d4d4d4;
+            margin: 0;
+        }
+        
+        .navbar {
+            background-color: #212121 !important;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: #2d2d2d;
+            border-bottom: 1px solid #333;
+        }
+        
+        .table {
+            color: #e0e0e0;
+        }
+        
+        .table-dark {
+            background-color: #212121;
+        }
+        
+        .alert-primary {
+            background-color: #1a1a2e;
+            border-color: #2a2a5a;
+            color: #a0a0ff;
+        }
+        
+        .alert-success {
+            background-color: #0a2e0a;
+            border-color: #1a4a1a;
+            color: #90ee90;
+        }
+        
+        .btn-primary {
+            background-color: #8a2be2;
+            border-color: #8a2be2;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9932cc;
+            border-color: #9932cc;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">RedSocial - Documentación</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#introduccion">Introducción</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conceptos">Conceptos teóricos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#estructura">Estructura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clases">Análisis de clases</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4" id="introduccion">Documentación del Proyecto RedSocial - Iteración 1</h1>
+        
+        <div class="alert alert-primary">
+            Este documento presenta la implementación de la primera iteración del proyecto RedSocial, desarrollado siguiendo los conceptos teóricos vistos en las clases 1-7 del curso de Programación 2.
+        </div>
+        
+        <h2 class="mt-5 mb-3" id="conceptos">Conceptos teóricos aplicados</h2>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Programación Orientada a Objetos</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Clases y objetos</li>
+                            <li>Encapsulamiento</li>
+                            <li>Métodos de acceso (getters/setters)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Estructuras de datos</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>HashMap (O(1) para búsquedas)</li>
+                            <li>ArrayList (Lista dinámica)</li>
+                            <li>Stack (LIFO para historial)</li>
+                            <li>Queue (FIFO para solicitudes)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Manejo de archivos y JSON</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Lectura y escritura de archivos</li>
+                            <li>Serialización/deserialización con Gson</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Pruebas unitarias</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Tests con JUnit</li>
+                            <li>Validación de funcionalidades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3" id="estructura">Estructura del proyecto</h2>
+        
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Clase</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Representa a un usuario de la red social</td>
+                    </tr>
+                    <tr>
+                        <td>Accion</td>
+                        <td>Registra las operaciones realizadas en el sistema</td>
+                    </tr>
+                    <tr>
+                        <td>SolicitudSeguimiento</td>
+                        <td>Modela una petición de un cliente para seguir a otro</td>
+                    </tr>
+                    <tr>
+                        <td>HistorialAcciones</td>
+                        <td>Gestiona el registro y deshecho de acciones</td>
+                    </tr>
+                    <tr>
+                        <td>Seguimientos</td>
+                        <td>Administra la cola de solicitudes de seguimiento</td>
+                    </tr>
+                    <tr>
+                        <td>ListaClientes</td>
+                        <td>Clase auxiliar para la serialización/deserialización JSON</td>
+                    </tr>
+                    <tr>
+                        <td>JSONManager</td>
+                        <td>Maneja la lectura y escritura de archivos JSON</td>
+                    </tr>
+                    <tr>
+                        <td>RedSocial</td>
+                        <td>Clase principal que integra todas las funcionalidades</td>
+                    </tr>
+                    <tr>
+                        <td>Main</td>
+                        <td>Punto de entrada de la aplicación con la interfaz de usuario</td>
+                    </tr>
+                    <tr>
+                        <td>RedSocialTest</td>
+                        <td>Pruebas unitarias para validar el funcionamiento</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Desarrollo cronológico</h2>
+        
+        <div class="alert alert-success">
+            El desarrollo siguió un enfoque incremental, comenzando por las entidades básicas y avanzando hacia la integración completa del sistema.
+        </div>
+        
+        <ol class="list-group list-group-numbered mb-4">
+            <li class="list-group-item bg-dark text-light border-secondary">Diseño de clases básicas (Cliente, Accion, SolicitudSeguimiento)</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Implementación de estructuras de datos (HistorialAcciones, Seguimientos)</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Desarrollo de la clase RedSocial que integra todas las funcionalidades</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Implementación de la persistencia con JSONManager</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Creación de la interfaz de usuario en Main</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Desarrollo de pruebas unitarias</li>
+        </ol>
+        
+        <h2 class="mt-5 mb-3" id="clases">Análisis detallado de cada clase</h2>
+        
+        <div class="accordion" id="accordionClases">
+            <!-- Cliente -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingCliente">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCliente" aria-expanded="false" aria-controls="collapseCliente">
+                        Cliente
+                    </button>
+                </h2>
+                <div id="collapseCliente" class="accordion-collapse collapse" aria-labelledby="headingCliente" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase representa a un usuario de la red social y contiene:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>dni</code>: Identificador único del cliente (String de 8 dígitos)</li>
+                            <li><code>nombre</code>: Nombre del cliente</li>
+                            <li><code>scoring</code>: Valor numérico que representa su nivel de influencia</li>
+                            <li><code>siguiendo</code>: Lista de nombres de clientes a los que sigue</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li>Constructor que inicializa los atributos y crea una lista vacía de seguimiento</li>
+                            <li>Getters para acceder a los atributos</li>
+                            <li><code>seguir(String nombre)</code>: Añade un nombre a la lista de seguimiento</li>
+                            <li><code>dejarDeSeguir(String nombre)</code>: Elimina un nombre de la lista de seguimiento</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class Cliente {
+    private String dni;
+    private String nombre;
+    private int scoring;
+    private List&lt;String&gt; siguiendo;
+
+    public Cliente(String dni, String nombre, int scoring) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.scoring = scoring;
+        this.siguiendo = new ArrayList&lt;&gt;();
+    }
+
+    // Getters y otros métodos
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accion -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingAccion">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccion" aria-expanded="false" aria-controls="collapseAccion">
+                        Accion
+                    </button>
+                </h2>
+                <div id="collapseAccion" class="accordion-collapse collapse" aria-labelledby="headingAccion" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase registra las operaciones realizadas en el sistema:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>tipo</code>: Describe la acción (ej: "Registro", "Seguimiento")</li>
+                            <li><code>detalles</code>: Información adicional sobre la acción</li>
+                            <li><code>fechaHora</code>: Momento en que se realizó la acción</li>
+                            <li><code>cliente</code>: Cliente que realizó la acción</li>
+                            <li><code>solicitudSeguimiento</code>: Opcional, relaciona la acción con una solicitud</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class Accion {
+    private String tipo;
+    private String detalles;
+    private Date fechaHora;
+    private Cliente cliente;
+    private SolicitudSeguimiento solicitudSeguimiento;
+
+    // Constructores y métodos
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RedSocial -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingRedSocial">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRedSocial" aria-expanded="false" aria-controls="collapseRedSocial">
+                        RedSocial
+                    </button>
+                </h2>
+                <div id="collapseRedSocial" class="accordion-collapse collapse" aria-labelledby="headingRedSocial" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta es la clase principal que integra todas las funcionalidades:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>clientesPorDni</code>: Un mapa que almacena clientes indexados por su DNI</li>
+                            <li><code>historialAcciones</code>: Instancia de HistorialAcciones para gestionar el historial</li>
+                            <li><code>seguimientos</code>: Instancia de Seguimientos para gestionar las solicitudes</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li><code>agregarCliente(Cliente cliente)</code>: Registra un nuevo cliente</li>
+                            <li><code>buscarClientePorDni(String dni)</code>: Busca un cliente por su DNI</li>
+                            <li><code>seguirCliente(Cliente clienteSolicitante, Cliente clienteASeguir)</code>: Crea una solicitud de seguimiento</li>
+                            <li><code>procesarSolicitudSeguimiento()</code>: Procesa la siguiente solicitud pendiente</li>
+                            <li><code                            <li><code>procesarSolicitudSeguimiento()</code>: Procesa la siguiente solicitud pendiente</li>
+                            <li><code>deshacerUltimaAccion()</code>: Deshace la última acción realizada</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class RedSocial {
+    private Map&lt;String, Cliente&gt; clientesPorDni = new HashMap&lt;&gt;();
+    private HistorialAcciones historialAcciones = new HistorialAcciones();
+    private Seguimientos seguimientos = new Seguimientos();
+
+    // Constructor y métodos
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- HistorialAcciones -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingHistorialAcciones">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHistorialAcciones" aria-expanded="false" aria-controls="collapseHistorialAcciones">
+                        HistorialAcciones
+                    </button>
+                </h2>
+                <div id="collapseHistorialAcciones" class="accordion-collapse collapse" aria-labelledby="headingHistorialAcciones" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase gestiona el registro y deshecho de acciones:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>acciones</code>: Una pila (Stack) que almacena las acciones realizadas</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li><code>registrarAccion(Accion accion)</code>: Añade una acción a la pila</li>
+                            <li><code>deshacerUltimaAccion()</code>: Extrae y devuelve la última acción registrada</li>
+                            <li><code>getAcciones()</code>: Devuelve la pila completa de acciones</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class HistorialAcciones {
+    private Stack&lt;Accion&gt; acciones;
+
+    public HistorialAcciones() {
+        this.acciones = new Stack&lt;&gt;();
+    }
+
+    // Métodos
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seguimientos -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingSeguimientos">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeguimientos" aria-expanded="false" aria-controls="collapseSeguimientos">
+                        Seguimientos
+                    </button>
+                </h2>
+                <div id="collapseSeguimientos" class="accordion-collapse collapse" aria-labelledby="headingSeguimientos" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase administra la cola de solicitudes de seguimiento:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>solicitudes</code>: Una cola (Queue) que almacena las solicitudes pendientes</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li><code>agregarSolicitud(SolicitudSeguimiento solicitud)</code>: Añade una solicitud a la cola</li>
+                            <li><code>procesarSolicitud()</code>: Extrae y devuelve la primera solicitud de la cola</li>
+                            <li><code>tieneSolicitudes()</code>: Verifica si hay solicitudes pendientes</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class Seguimientos {
+    private Queue&lt;SolicitudSeguimiento&gt; solicitudes;
+
+    public Seguimientos() {
+        this.solicitudes = new LinkedList&lt;&gt;();
+    }
+
+    // Métodos
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SolicitudSeguimiento -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingSolicitudSeguimiento">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolicitudSeguimiento" aria-expanded="false" aria-controls="collapseSolicitudSeguimiento">
+                        SolicitudSeguimiento
+                    </button>
+                </h2>
+                <div id="collapseSolicitudSeguimiento" class="accordion-collapse collapse" aria-labelledby="headingSolicitudSeguimiento" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase modela una petición de un cliente para seguir a otro:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>clienteSolicitante</code>: Cliente que envía la solicitud</li>
+                            <li><code>clienteASeguir</code>: Cliente al que se quiere seguir</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li>Constructor que inicializa los atributos</li>
+                            <li>Getters para acceder a los atributos</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class SolicitudSeguimiento {
+    private Cliente clienteSolicitante;
+    private Cliente clienteASeguir;
+
+    // Constructor y métodos
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- JSONManager -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingJSONManager">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJSONManager" aria-expanded="false" aria-controls="collapseJSONManager">
+                        JSONManager
+                    </button>
+                </h2>
+                <div id="collapseJSONManager" class="accordion-collapse collapse" aria-labelledby="headingJSONManager" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase maneja la lectura y escritura de archivos JSON:</p>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li><code>cargarClientesDesdeJSON(String rutaArchivo)</code>: Lee un archivo JSON y devuelve un mapa de clientes</li>
+                            <li><code>guardarClientesEnJSON(String rutaArchivo, List&lt;Cliente&gt; clientes)</code>: Guarda una lista de clientes en un archivo JSON</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class JSONManager {
+    public Map&lt;String, Cliente&gt; cargarClientesDesdeJSON(String rutaArchivo) {
+        // Implementación
+    }
+
+    public void guardarClientesEnJSON(String rutaArchivo, List&lt;Cliente&gt; clientes) {
+        // Implementación
+    }
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ListaClientes -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingListaClientes">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseListaClientes" aria-expanded="false" aria-controls="collapseListaClientes">
+                        ListaClientes
+                    </button>
+                </h2>
+                <div id="collapseListaClientes" class="accordion-collapse collapse" aria-labelledby="headingListaClientes" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase auxiliar se utiliza para la serialización/deserialización JSON:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>clientes</code>: Una lista de objetos Cliente</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li>Getters y setters para acceder y modificar la lista</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class ListaClientes {
+    private List&lt;Cliente&gt; clientes;
+
+    // Getters y setters
+}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingMain">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMain" aria-expanded="false" aria-controls="collapseMain">
+                        Main
+                    </button>
+                </h2>
+                <div id="collapseMain" class="accordion-collapse collapse" aria-labelledby="headingMain" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase contiene el punto de entrada de la aplicación y la interfaz de usuario:</p>
+                        <h6>Funcionalidades:</h6>
+                        <ul>
+                            <li>Carga los clientes desde un archivo JSON</li>
+                            <li>Crea una instancia de RedSocial</li>
+                            <li>Implementa un menú interactivo con opciones para gestionar la red social</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RedSocialTest -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingRedSocialTest">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRedSocialTest" aria-expanded="false" aria-controls="collapseRedSocialTest">
+                        RedSocialTest
+                    </button>
+                </h2>
+                <div id="collapseRedSocialTest" class="accordion-collapse collapse" aria-labelledby="headingRedSocialTest" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase contiene las pruebas unitarias para validar el funcionamiento del sistema:</p>
+                        <h6>Tests implementados:</h6>
+                        <ul>
+                            <li>Prueba para agregar clientes</li>
+                            <li>Prueba para buscar clientes por DNI</li>
+                            <li>Prueba para seguir a otros clientes</li>
+                            <li>Prueba para deshacer acciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Pruebas unitarias</h2>
+        
+        <p>Las pruebas unitarias implementadas en la clase RedSocialTest validan el funcionamiento correcto de las principales funcionalidades:</p>
+        
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Prueba</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>testAgregarCliente</td>
+                        <td>Verifica que un cliente se pueda agregar correctamente y luego ser recuperado</td>
+                    </tr>
+                    <tr>
+                        <td>testBuscarClientePorDni</td>
+                        <td>Comprueba que la búsqueda por DNI devuelva el cliente correcto</td>
+                    </tr>
+                    <tr>
+                        <td>testSeguirCliente</td>
+                        <td>Valida que un cliente pueda seguir a otro correctamente</td>
+                    </tr>
+                    <tr>
+                        <td>testDeshacerUltimaAccion</td>
+                        <td>Verifica que se pueda deshacer la última acción realizada</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Conclusiones</h2>
+        
+        <div class="alert alert-primary">
+            <p>La implementación de la Iteración 1 del proyecto cumple con todos los requerimientos especificados en la consigna:</p>
+            <ol>
+                <li><strong>Gestión de Clientes</strong>: Estructura eficiente (HashMap) para almacenar y buscar clientes.</li>
+                <li><strong>Historial de Acciones</strong>: Sistema para registrar acciones y deshacer la última acción realizada.</li>
+                <li><strong>Gestión de Solicitudes</strong>: Mecanismo de cola para procesar solicitudes en orden.</li>
+                <li><strong>Persistencia y Pruebas</strong>: Carga de datos desde JSON y pruebas unitarias.</li>
+            </ol>
+            <p>El proyecto demuestra la aplicación práctica de los conceptos teóricos vistos en el curso.</p>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <div class="container">
+            <p>Documentación del Proyecto RedSocial - Iteración 1 | Programación 2 | 2025</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
