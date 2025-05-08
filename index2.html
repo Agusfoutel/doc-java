@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación RedSocial - Iteración 1</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-body-bg: #121212;
+            --bs-body-color: #e0e0e0;
+        }
+        
+        body {
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
+            padding-bottom: 50px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #ff69b4;
+        }
+        
+        .code-block {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        pre {
+            color: #d4d4d4;
+            margin: 0;
+        }
+        
+        .navbar {
+            background-color: #212121 !important;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: #2d2d2d;
+            border-bottom: 1px solid #333;
+        }
+        
+        .table {
+            color: #e0e0e0;
+        }
+        
+        .table-dark {
+            background-color: #212121;
+        }
+        
+        .alert-primary {
+            background-color: #1a1a2e;
+            border-color: #2a2a5a;
+            color: #a0a0ff;
+        }
+        
+        .alert-success {
+            background-color: #0a2e0a;
+            border-color: #1a4a1a;
+            color: #90ee90;
+        }
+        
+        .btn-primary {
+            background-color: #8a2be2;
+            border-color: #8a2be2;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9932cc;
+            border-color: #9932cc;
+        }
+        
+        .flow-diagram {
+            background-color: #2d2d2d;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .example-box {
+            background-color: #2a2a2a;
+            border-left: 4px solid #ff69b4;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">RedSocial - Documentación</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#introduccion">Introducción</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conceptos-basicos">Conceptos básicos Java</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conceptos-teoricos">Conceptos teóricos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analisis-clases">Análisis de clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#interaccion">Interacción entre clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejemplos">Ejemplos prácticos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4" id="introduccion">Documentación del Proyecto RedSocial - Iteración 1</h1>
+        
+        <div class="alert alert-primary">
+            Este documento presenta la implementación de la primera iteración del proyecto RedSocial, desarrollado siguiendo los conceptos teóricos vistos en las clases 1-7 del curso de Programación 2.
+        </div>
+        
+        <h2 class="mt-5 mb-3" id="conceptos-basicos">Conceptos básicos de Java</h2>
+        
+        <p>Antes de profundizar en el proyecto, explicaremos algunos conceptos fundamentales de Java:</p>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Clases y Objetos</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Clase:</strong> Es como un plano o plantilla que define atributos (datos) y métodos (funciones).</p>
+                        <p><strong>Objeto:</strong> Es una instancia específica de una clase.</p>
+                        <p>Por ejemplo, la clase <code>Cliente</code> es un plano, y cuando creamos un cliente específico como "Pablo" con DNI "40404040", estamos creando un objeto.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Atributos y Métodos</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Atributos:</strong> Son variables que pertenecen a una clase.</p>
+                        <div class="code-block">
+                            <pre>private String dni;
+private String nombre;</pre>
+                        </div>
+                        <p><strong>Métodos:</strong> Son funciones que pertenecen a una clase.</p>
+                        <div class="code-block">
+                            <pre>public String getNombre() {
+    return nombre;
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Constructor</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Es un método especial que se ejecuta cuando se crea un objeto. Tiene el mismo nombre que la clase:</p>
+                        <div class="code-block">
+                            <pre>public Cliente(String dni, String nombre, int scoring) {
+    this.dni = dni;
+    this.nombre = nombre;
+    this.scoring = scoring;
+    this.siguiendo = new ArrayList<>();
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Encapsulamiento</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Es el principio de ocultar los detalles internos de una clase y proporcionar métodos para acceder a ellos.</p>
+                        <p>Los modificadores de acceso (private, public) y los métodos getter/setter son ejemplos de encapsulamiento.</p>
+                        <div class="code-block">
+                            <pre>private String nombre;  // Atributo privado
+public String getNombre() {  // Método público para acceder
+    return nombre;
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3" id="conceptos-teoricos">Conceptos teóricos aplicados</h2>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Programación Orientada a Objetos</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Clases y objetos:</strong> El sistema está estructurado en clases que representan entidades como Cliente, Acción, SolicitudSeguimiento.</li>
+                            <li><strong>Encapsulamiento:</strong> Se utilizan modificadores de acceso (private, public) para ocultar los detalles internos de las clases.</li>
+                            <li><strong>Métodos de acceso:</strong> Se implementan getters y setters para acceder a los atributos privados.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Estructuras de datos</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>HashMap:</strong> Utilizado en la clase RedSocial para almacenar clientes por su DNI, permitiendo búsquedas en tiempo O(1).</li>
+                            <li><strong>ArrayList:</strong> Utilizado en la clase Cliente para almacenar los nombres de los clientes que sigue.</li>
+                            <li><strong>Stack:</strong> Implementado en la clase HistorialAcciones para mantener un registro de acciones que pueden ser deshechas (LIFO).</li>
+                            <li><strong>Queue:</strong> Implementado en la clase Seguimientos para procesar solicitudes de seguimiento en orden de llegada (FIFO).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Detalles de las estructuras de datos</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-light">HashMap (Mapa de hash)</h6>
+                        <ul>
+                            <li>Es una estructura que almacena pares clave-valor.</li>
+                            <li>Permite búsquedas muy rápidas (tiempo constante O(1)) si conocemos la clave.</li>
+                            <li>En nuestro proyecto, usamos el DNI del cliente como clave para encontrar rápidamente un cliente.</li>
+                            <li>Ejemplo: <code>clientesPorDni.get("40404040")</code> devuelve el cliente con ese DNI instantáneamente.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-light">ArrayList (Lista dinámica)</h6>
+                        <ul>
+                            <li>Es una lista que puede crecer o disminuir dinámicamente.</li>
+                            <li>Permite añadir, eliminar y acceder a elementos por su posición.</li>
+                            <li>En nuestro proyecto, cada Cliente tiene un ArrayList de nombres de clientes a los que sigue.</li>
+                            <li>Ejemplo: <code>cliente.getSiguiendo().add("Pablo")</code> añade "Pablo" a la lista de seguidos.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-light">Stack (Pila)</h6>
+                        <ul>
+                            <li>Sigue el principio LIFO (Last In, First Out): el último elemento añadido es el primero en salir.</li>
+                            <li>Perfecta para implementar funcionalidades de "deshacer".</li>
+                            <li>En nuestro proyecto, usamos Stack para almacenar las acciones realizadas.</li>
+                            <li>Ejemplo: <code>acciones.push(accion)</code> añade una acción, <code>acciones.pop()</code> extrae la última acción añadida.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-light">Queue (Cola)</h6>
+                        <ul>
+                            <li>Sigue el principio FIFO (First In, First Out): el primer elemento añadido es el primero en salir.</li>
+                            <li>Ideal para procesar solicitudes en el orden en que fueron recibidas.</li>
+                            <li>En nuestro proyecto, usamos Queue para las solicitudes de seguimiento.</li>
+                            <li>Ejemplo: <code>solicitudes.offer(solicitud)</code> añade una solicitud, <code>solicitudes.poll()</code> extrae la primera solicitud añadida.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Manejo de archivos y JSON</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Lectura y escritura de archivos JSON para persistir la información de los clientes.</li>
+                            <li>Uso de la biblioteca Gson para la serialización y deserialización de objetos Java a JSON.</li>
+                            <li>La clase JSONManager encapsula toda la lógica de manejo de archivos.</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>Gson gson = new Gson();
+ListaClientes listaClientes = gson.fromJson(reader, ListaClientes.class);</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Pruebas unitarias</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Implementación de tests con JUnit para validar el funcionamiento correcto del sistema.</li>
+                            <li>JUnit es un framework que permite crear pruebas automatizadas para verificar que el código funciona como se espera.</li>
+                            <li>Las anotaciones <code>@Test</code> indican métodos de prueba.</li>
+                            <li>Los métodos <code>assert</code> verifican condiciones esperadas.</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>@Test
+public void testAgregarCliente() {
+    // código de prueba
+    assertNotNull(resultado);
+}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Estructura del proyecto</h2>
+        
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Clase</th>
+                        <th>Descripción</th>
+                        <th>Responsabilidad principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>Representa a un usuario de la red social</td>
+                        <td>Almacenar información del cliente y gestionar su lista de seguimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Accion</td>
+                        <td>Registra las operaciones realizadas en el sistema</td>
+                        <td>Almacenar detalles de cada acción para poder rastrearla y deshacerla</td>
+                    </tr>
+                    <tr>
+                        <td>SolicitudSeguimiento</td>
+                        <td>Modela una petición de un cliente para seguir a otro</td>
+                        <td>Relacionar al cliente solicitante con el cliente a seguir</td>
+                    </tr>
+                    <tr>
+                        <td>HistorialAcciones</td>
+                        <td>Gestiona el registro y deshecho de acciones</td>
+                        <td>Mantener una pila de acciones y permitir deshacer la última</td>
+                    </tr>
+                    <tr>
+                        <td>Seguimientos</td>
+                        <td>Administra la cola de solicitudes de seguimiento</td>
+                        <td>Procesar solicitudes en el orden en que fueron recibidas</td>
+                    </tr>
+                    <tr>
+                        <td>ListaClientes</td>
+                        <td>Clase auxiliar para la serialización/deserialización JSON</td>
+                        <td>Facilitar la conversión entre JSON y objetos Java</td>
+                    </tr>
+                    <tr>
+                        <td>JSONManager</td>
+                        <td>Maneja la lectura y escritura de archivos JSON</td>
+                        <td>Cargar y guardar datos de clientes en formato JSON</td>
+                    </tr>
+                    <tr>
+                        <td>RedSocial</td>
+                        <td>Clase principal que integra todas las funcionalidades</td>
+                        <td>Coordinar las operaciones entre todas las demás clases</td>
+                    </tr>
+                    <tr>
+                        <td>Main</td>
+                        <td>Punto de entrada de la aplicación con la interfaz de usuario</td>
+                        <td>Proporcionar un menú interactivo para el usuario</td>
+                    </tr>
+                    <tr>
+                        <td>RedSocialTest</td>
+                        <td>Pruebas unitarias para validar el funcionamiento</td>
+                        <td>Verificar que el sistema funciona correctamente</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Desarrollo cronológico</h2>
+        
+        <div class="alert alert-success">
+            El desarrollo siguió un enfoque incremental, comenzando por las entidades básicas y avanzando hacia la integración completa del sistema.
+        </div>
+        
+        <ol class="list-group list-group-numbered mb-4">
+            <li class="list-group-item bg-dark text-light border-secondary">Diseño de clases básicas (Cliente, Accion, SolicitudSeguimiento)</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Implementación de estructuras de datos (HistorialAcciones, Seguimientos)</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Desarrollo de la clase RedSocial que integra todas las funcionalidades</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Implementación de la persistencia con JSONManager</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Creación de la interfaz de usuario en Main</li>
+            <li class="list-group-item bg-dark text-light border-secondary">Desarrollo de pruebas unitarias</li>
+        </ol>
+        
+        <h2 class="mt-5 mb-3" id="analisis-clases">Análisis detallado de cada clase</h2>
+        
+        <div class="accordion" id="accordionClases">
+            <!-- Cliente -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingCliente">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCliente" aria-expanded="false" aria-controls="collapseCliente">
+                        Cliente
+                    </button>
+                </h2>
+                <div id="collapseCliente" class="accordion-collapse collapse" aria-labelledby="headingCliente" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta clase representa a un usuario de la red social y contiene:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>dni</code>: Identificador único del cliente (String de 8 dígitos)</li>
+                            <li><code>nombre</code>: Nombre del cliente</li>
+                            <li><code>scoring</code>: Valor numérico que representa su nivel de influencia</li>
+                            <li><code>siguiendo</code>: Lista de nombres de clientes a los que sigue</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li>Constructor que inicializa los atributos y crea una lista vacía de seguimiento</li>
+                            <li>Getters para acceder a los atributos</li>
+                            <li><code>seguir(String nombre)</code>: Añade un nombre a la lista de seguimiento</li>
+                            <li><code>dejarDeSeguir(String nombre)</code>: Elimina un nombre de la lista de seguimiento</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class Cliente {
+    private String dni;
+    private String nombre;
+    private int scoring;
+    private List&lt;String&gt; siguiendo;
+
+    public Cliente(String dni, String nombre, int scoring) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.scoring = scoring;
+        this.siguiendo = new ArrayList&lt;&gt;();
+    }
+
+    // Getters y otros métodos
+}
+                            </pre>
+                        </div>
+                        <h6>Análisis línea por línea:</h6>
+                        <ul>
+                            <li><code>private String dni;</code>: Declara una variable privada para almacenar el DNI</li>
+                            <li><code>this.siguiendo = new ArrayList&lt;&gt;();</code>: Crea una lista vacía para almacenar los nombres de los clientes seguidos</li>
+                            <li><code>public void seguir(String nombre) { this.siguiendo.add(nombre); }</code>: Añade un nombre a la lista de seguidos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Más clases... -->
+            
+            <!-- RedSocial -->
+            <div class="accordion-item bg-dark border-secondary">
+                <h2 class="accordion-header" id="headingRedSocial">
+                    <button class="accordion-button bg-dark text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRedSocial" aria-expanded="false" aria-controls="collapseRedSocial">
+                        RedSocial (Clase principal)
+                    </button>
+                </h2>
+                <div id="collapseRedSocial" class="accordion-collapse collapse" aria-labelledby="headingRedSocial" data-bs-parent="#accordionClases">
+                    <div class="accordion-body">
+                        <p>Esta es la clase principal que integra todas las funcionalidades:</p>
+                        <h6>Atributos:</h6>
+                        <ul>
+                            <li><code>clientesPorDni</code>: Un mapa que almacena clientes indexados por su DNI para búsquedas rápidas</li>
+                            <li><code>historialAcciones</code>: Instancia de HistorialAcciones para gestionar el historial</li>
+                            <li><code>seguimientos</code>: Instancia de Seguimientos para gestionar las solicitudes</li>
+                        </ul>
+                        <h6>Métodos principales:</h6>
+                        <ul>
+                            <li><code>agregarCliente(Cliente cliente)</code>: Registra un nuevo cliente y guarda la acción</li>
+                            <li><code>buscarClientePorDni(String dni)</code>: Busca un cliente por su DNI (búsqueda rápida O(1))</li>
+                            <li><code>seguirCliente(Cliente clienteSolicitante, Cliente clienteASeguir)</code>: Crea una solicitud de seguimiento</li>
+                            <li><code>procesarSolicitudSeguimiento()</code>: Procesa la siguiente solicitud pendiente</li>
+                            <li><code>deshacerUltimaAccion()</code>: Deshace la última acción realizada según su tipo</li>
+                        </ul>
+                        <div class="code-block">
+                            <pre>
+public class RedSocial {
+    private Map&lt;String, Cliente&gt; clientesPorDni = new HashMap&lt;&gt;();
+    private HistorialAcciones historialAcciones = new HistorialAcciones();
+    private Seguimientos seguimientos = new Seguimientos();
+
+    // Métodos
+}
+                            </pre>
+                        </div>
+                        <h6>Análisis línea por línea de métodos clave:</h6>
+                        <ul>
+                            <li><code>clientesPorDni.put(cliente.getDni(), cliente);</code>: Añade el cliente al mapa, usando su DNI como clave</li>
+                            <li><code>return clientesPorDni.get(dni);</code>: Busca un cliente por su DNI en tiempo constante O(1)</li>
+                            <li><code>switch (tipoAccion) {...}</code>: Maneja diferentes tipos de acciones al deshacer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3" id="interaccion">Cómo interactúan las clases entre sí</h2>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Flujo de registro de cliente</h5>
+            </div>
+            <div class="card-body">
+                <div class="flow-diagram">
+                    <ol>
+                        <li><code>Main</code> recibe los datos del cliente (DNI, nombre, scoring)</li>
+                        <li>Crea un objeto <code>Cliente</code> con estos datos</li>
+                        <li>Llama a <code>RedSocial.agregarCliente(cliente)</code></li>
+                        <li><code>RedSocial</code> valida el DNI y verifica que no exista otro cliente con el mismo DNI</li>
+                        <li>Guarda el cliente en su mapa <code>clientesPorDni</code></li>
+                        <li>Crea una <code>Accion</code> de tipo "Registro" con los detalles del cliente</li>
+                        <li>Llama a <code>HistorialAcciones.registrarAccion(accion)</code> para guardar la acción</li>
+                        <li><code>HistorialAcciones</code> añade la acción a su pila <code>acciones</code></li>
+                        <li><code>Main</code> guarda los clientes actualizados en el archivo JSON</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Flujo de seguimiento</h5>
+            </div>
+            <div class="card-body">
+                <div class="flow-diagram">
+                    <ol>
+                        <li><code>Main</code> recibe los DNIs de los clientes</li>
+                        <li>Busca los clientes con <code>RedSocial.buscarClientePorDni()</code></li>
+                        <li>Llama a <code>RedSocial.seguirCliente(clienteSolicitante, clienteASeguir)</code></li>
+                        <li><code>RedSocial</code> crea una <code>SolicitudSeguimiento</code> con los dos clientes</li>
+                        <li>Llama a <code>Seguimientos.agregarSolicitud(solicitud)</code> para añadir la solicitud a la cola</li>
+                        <li><code>RedSocial</code> crea una <code>Accion</code> de tipo "Solicitud de seguimiento" con los detalles</li>
+                        <li>Llama a <code>HistorialAcciones.registrarAccion(accion)</code> para guardar la acción</li>
+                        <li><code>Main</code> llama a <code>RedSocial.procesarSolicitudSeguimiento()</code></li>
+                        <li><code>RedSocial</code> obtiene la primera solicitud de <code>Seguimientos</code></li>
+                        <li>Llama a <code>Cliente.seguir(nombre)</code> para actualizar la lista de seguimiento</li>
+                        <li>Crea una <code>Accion</code> de tipo "Seguimiento" y la registra</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Flujo de deshacer acción</h5>
+            </div>
+            <div class="card-body">
+                <div class="flow-diagram">
+                    <ol>
+                        <li><code>Main</code> llama a <code>RedSocial.deshacerUltimaAccion()</code></li>
+                        <li><code>RedSocial</code> llama a <code>HistorialAcciones.deshacerUltimaAccion()</code></li>
+                        <li><code>HistorialAcciones</code> extrae y devuelve la última acción de la pila <code>acciones</code></li>
+                        <li><code>RedSocial</code> identifica el tipo de acción y realiza la operación inversa:
+                            <ul>
+                                <li>Si es "Registro": Elimina el cliente del mapa <code>clientesPorDni</code></li>
+                                <li>Si es "Seguimiento": Llama a <code>Cliente.dejarDeSeguir(nombre)</code> para actualizar la lista de seguimiento</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3" id="ejemplos">Ejemplos prácticos</h2>
+        
+        <div class="example-box">
+            <h5>Ejemplo 1: Registrar un cliente</h5>
+            <div class="code-block">
+                <pre>
+--- Menu Red Social ---
+1. Registrar cliente
+...
+Ingrese una opcion: 1
+Ingrese el DNI del cliente: 12345678
+Ingrese el nombre del cliente: Laura
+Ingrese el scoring del cliente: 90
+Cliente registrado correctamente.</pre>
+            </div>
+            <h6 class="mt-3">¿Qué ocurre internamente?</h6>
+            <ol>
+                <li>Se crea un objeto <code>Cliente</code> con DNI "12345678", nombre "Laura" y scoring 90</li>
+                <li>Se verifica que el DNI sea válido y no exista otro cliente con el mismo DNI</li>
+                <li>Se añade el cliente al mapa <code>clientesPorDni</code></li>
+                <li>Se crea una acción de tipo "Registro" y se añade al historial</li>
+                <li>Se guarda la lista actualizada de clientes en el archivo JSON</li>
+            </ol>
+        </div>
+        
+        <div class="example-box">
+            <h5>Ejemplo 2: Seguir a otro cliente</h5>
+            <div class="code-block">
+                <pre>
+--- Menu Red Social ---
+4. Seguir a otro cliente
+...
+Ingrese una opcion: 4
+Ingrese el DNI del cliente que quiere solicitar el seguimiento: 12345678
+Ingrese el DNI del cliente al que quiere enviar la solicitud de seguimiento: 40404040
+Laura ahora sigue a Pablo.</pre>
+            </div>
+            <h6 class="mt-3">¿Qué ocurre internamente?</h6>
+            <ol>
+                <li>Se buscan los clientes con DNI "12345678" (Laura) y "40404040" (Pablo)</li>
+                <li>Se crea una solicitud de seguimiento de Laura a Pablo</li>
+                <li>Se añade la solicitud a la cola de solicitudes</li>
+                <li>Se crea una acción de tipo "Solicitud de seguimiento" y se añade al historial</li>
+                <li>Se procesa la solicitud: Laura añade "Pablo" a su lista de seguimiento</li>
+                <li>Se crea una acción de tipo "Seguimiento" y se añade al historial</li>
+            </ol>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Pruebas unitarias</h2>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Tests implementados</h5>
+            </div>
+            <div class="card-body">
+                <div class="code-block">
+                    <pre>
+@Test
+public void testAgregarCliente() {
+    RedSocial redSocial = new RedSocial();
+    Cliente cliente = new Cliente("12345678", "Alice", 95);
+    redSocial.agregarCliente(cliente);
+    assertNotNull(redSocial.buscarClientePorDni("12345678"));
+}</pre>
+                </div>
+                <p class="mt-3">Esta prueba verifica que un cliente se pueda agregar correctamente y luego ser recuperado.</p>
+                
+                <div class="code-block mt-4">
+                    <pre>
+@Test
+public void testSeguirCliente() {
+    RedSocial redSocial = new RedSocial();
+    Cliente cliente1 = new Cliente("12345678", "Alice", 95);
+    Cliente cliente2 = new Cliente("87654321", "Bob", 88);
+    redSocial.agregarCliente(cliente1);
+    redSocial.agregarCliente(cliente2);
+    redSocial.seguirCliente(cliente1, cliente2);
+    redSocial.procesarSolicitudSeguimiento();
+    assertTrue(cliente1.getSiguiendo().contains("Bob"));
+}</pre>
+                </div>
+                <p class="mt-3">Esta prueba valida que un cliente pueda seguir a otro correctamente.</p>
+            </div>
+        </div>
+        
+        <h2 class="mt-5 mb-3">Conclusiones</h2>
+        
+        <div class="alert alert-primary">
+            <p>La implementación de la Iteración 1 del proyecto cumple con todos los requerimientos especificados en la consigna:</p>
+            <ol>
+                <li><strong>Gestión de Clientes</strong>: Estructura eficiente (HashMap) para almacenar y buscar clientes.</li>
+                <li><strong>Historial de Acciones</strong>: Sistema para registrar acciones y deshacer la última acción realizada.</li>
+                <li><strong>Gestión de Solicitudes</strong>: Mecanismo de cola para procesar solicitudes en orden.</li>
+                <li><strong>Persistencia y Pruebas</strong>: Carga de datos desde JSON y pruebas unitarias.</li>
+            </ol>
+            <p>El proyecto demuestra la aplicación práctica de los conceptos teóricos vistos en el curso, resultando en un sistema robusto y eficiente para la gestión de clientes en una red social empresarial.</p>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <div class="container">
+            <p>Documentación del Proyecto RedSocial - Iteración 1 | Programación 2 | 2025</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
